@@ -1,6 +1,19 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import { createTheme, NextUIProvider } from "@nextui-org/react";
+import type { AppProps } from "next/app";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
+
+const theme = createTheme({
+  type: "dark",
+});
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <NextUIProvider theme={theme}>
+      <main className={montserrat.className}>
+        <Component {...pageProps} />
+      </main>
+    </NextUIProvider>
+  );
 }
