@@ -1,3 +1,4 @@
+import { trpc } from "@/utils/trpc";
 import { Button, Col, Row, Text } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +8,7 @@ import bgImage from "../assets/background.jpg";
 
 const Home = () => {
   const { push } = useRouter();
+
   return (
     <>
       <Row css={{ width: "100vw", height: "100vh" }} justify="center">
