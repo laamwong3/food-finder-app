@@ -21,12 +21,12 @@ const Home = () => {
           justify="center"
           align="center"
         >
-          <Col css={{ width: "60%" }}>
+          <Col css={{ width: "100%" }}>
             <Text h1 css={{ textAlign: "center" }}>
               Welcome to <span className="magic-text">Food Finder</span>
             </Text>
             <Row justify="center">
-              <Button auto bordered size={"xl"} ghost>
+              <Button auto bordered size={"xl"} ghost onPress={() => {}}>
                 GET STARTED
               </Button>
             </Row>
