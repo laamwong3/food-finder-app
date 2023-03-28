@@ -28,7 +28,13 @@ const Home = () => {
               Welcome to <span className="magic-text">Food Finder</span>
             </Text>
             <Row justify="center">
-              <Button auto bordered size={"xl"} ghost onPress={() => {}}>
+              <Button
+                auto
+                bordered
+                size={"xl"}
+                ghost
+                onPress={() => push("/categories")}
+              >
                 GET STARTED
               </Button>
             </Row>
