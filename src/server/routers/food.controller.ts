@@ -6,7 +6,7 @@ export const getFoodCategoriesController = async () => {
     const response = await fetch(
       "https://www.themealdb.com/api/json/v1/1/categories.php"
     );
-    const data: Categories = await response.json();
+    const data = (await response.json()) as Categories;
     const categories = data.categories;
 
     return {
