@@ -49,9 +49,22 @@ export const getMealByIdController = async ({ idMeal }: GetMealById) => {
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`
     );
     const data = (await response.json()) as SingleMeal;
-    const meal = data.meals;
+    const meal = data.meals[0];
+
+    const image = meal.strMealThumb;
+    const name = meal.strMeal;
+    const ingredients = Object.keys(meal)
+      .filter((key) => key.indexOf("strIngredient") === 0)
+      .map((key) => meal[key])
+      .filter(Boolean);
+    const video = meal.strYoutube;
+    const instructions = meal.strInstructions;
     return {
-      meal,
+      image,
+      name,
+      ingredients,
+      video,
+      instructions,
     };
   } catch (error) {
     throw new TRPCError({
