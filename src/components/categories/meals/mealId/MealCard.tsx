@@ -2,10 +2,18 @@ import { Category, Meal } from "@/server/routers/food.type";
 import { Card, Col, Row, Text } from "@nextui-org/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { ParsedUrlQuery } from "querystring";
 import React from "react";
 
+interface QueryParams extends ParsedUrlQuery {
+  categories: string;
+  meals: string;
+}
+
 const MealCard = ({ meal }: { meal: Meal }) => {
-  const { push } = useRouter();
+  const { push, query } = useRouter();
+  const { meals } = query as QueryParams;
+
   return (
     <Card
       isHoverable
@@ -14,7 +22,7 @@ const MealCard = ({ meal }: { meal: Meal }) => {
         boxShadow: "0 0 5px white",
       }}
       onPress={() => {
-        // push(`/categories/${category.strCategory}`);
+        push(`/categories/${meals}/${meal.idMeal}`);
       }}
     >
       <Card.Body>

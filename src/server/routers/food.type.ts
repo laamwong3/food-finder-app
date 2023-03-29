@@ -18,3 +18,7 @@ export interface Meal {
   strMealThumb: string;
   idMeal: string;
 }
+
+export interface SingleMeal {
+  meals: { [key: string]: null | string }[];
+}
