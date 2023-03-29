@@ -8,6 +8,11 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 
 const theme = createTheme({
   type: "dark",
+  theme: {
+    colors: {
+      background: "#26292B",
+    },
+  },
 });
 
 function App({ Component, pageProps }: AppProps) {

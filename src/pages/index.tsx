@@ -15,11 +15,15 @@ const Home = () => {
         <Image
           src={bgImage.src}
           alt="food"
-          style={{ objectFit: "cover", opacity: 0.25 }}
+          style={{ objectFit: "cover" }}
           fill
         />
         <Row
-          css={{ width: "100%", height: "100%" }}
+          css={{
+            width: "100%",
+            height: "100%",
+            background: "rgba(0,0,0,0.75)",
+          }}
           justify="center"
           align="center"
         >
