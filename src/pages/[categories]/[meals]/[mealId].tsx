@@ -19,6 +19,9 @@ const mealId = () => {
   const { query } = useRouter();
   const { mealId } = query as QueryParams;
 
+  const { data } = trpc.getMealById.useQuery({ idMeal: mealId });
+  console.log(data?.meal);
+
   // const { data } = trpc.getMealsByCategory.useQuery({ category: meals });
   // console.log(data);
 

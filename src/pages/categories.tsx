@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 
 const categories = () => {
   const { data } = trpc.getFoodCategories.useQuery();
-  console.log(data);
+  // console.log(data);
 
   return (
     <>

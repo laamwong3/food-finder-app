@@ -1,6 +1,6 @@
 import { TRPCError } from "@trpc/server";
-import { GetMealsByCategory } from "./food.schema";
-import { Categories, Meals } from "./food.type";
+import { GetMealById, GetMealsByCategory } from "./food.schema";
+import { Categories, Meals, SingleMeal } from "./food.type";
 
 export const getFoodCategoriesController = async () => {
   try {
@@ -38,7 +38,25 @@ export const getMealsByCategoryController = async ({
   } catch (error) {
     throw new TRPCError({
       code: "INTERNAL_SERVER_ERROR",
-      message: "Failed to get food categories",
+      message: "Failed to get meals by category",
+      cause: error,
+    });
+  }
+};
+export const getMealByIdController = async ({ idMeal }: GetMealById) => {
+  try {
+    const response = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`
+    );
+    const data = (await response.json()) as SingleMeal;
+    const meal = data.meals;
+    return {
+      meal,
+    };
+  } catch (error) {
+    throw new TRPCError({
+      code: "INTERNAL_SERVER_ERROR",
+      message: "Failed to get meal by id",
       cause: error,
     });
   }

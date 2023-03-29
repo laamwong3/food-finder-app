@@ -1,6 +1,7 @@
-import { getMealsByCategorySchema } from "./food.schema";
+import { getMealByIdSchema, getMealsByCategorySchema } from "./food.schema";
 import {
   getFoodCategoriesController,
+  getMealByIdController,
   getMealsByCategoryController,
 } from "./food.controller";
 import { z } from "zod";
@@ -11,6 +12,9 @@ export const appRouter = router({
   getMealsByCategory: procedure
     .input(getMealsByCategorySchema)
     .query(({ input }) => getMealsByCategoryController(input)),
+  getMealById: procedure
+    .input(getMealByIdSchema)
+    .query(({ input }) => getMealByIdController(input)),
 });
 
 export type AppRouter = typeof appRouter;

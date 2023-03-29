@@ -19,7 +19,7 @@ const meals = () => {
   const { meals } = query as QueryParams;
 
   const { data } = trpc.getMealsByCategory.useQuery({ category: meals });
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
