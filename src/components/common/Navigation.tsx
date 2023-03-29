@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
-const Navigation = () => {
+const Navigation = ({ title }: { title: string }) => {
   const { push } = useRouter();
   return (
     <Navbar variant={"sticky"} isBordered maxWidth={"fluid"}>
@@ -12,10 +12,10 @@ const Navigation = () => {
         <Text
           h1
           className="magic-text"
-          onClick={() => push("/")}
+          onClick={() => push("/categories")}
           css={{ cursor: "pointer" }}
         >
-          Categories
+          {title}
         </Text>
       </Navbar.Content>
       <Navbar.Content></Navbar.Content>

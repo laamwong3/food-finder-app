@@ -1,10 +1,10 @@
-import { Category } from "@/server/routers/food.type";
+import { Category, Meal } from "@/server/routers/food.type";
 import { Card, Col, Row, Text } from "@nextui-org/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 
-const CategoryCard = ({ category }: { category: Category }) => {
+const MealCard = ({ meal }: { meal: Meal }) => {
   const { push } = useRouter();
   return (
     <Card
@@ -14,15 +14,15 @@ const CategoryCard = ({ category }: { category: Category }) => {
         boxShadow: "0 0 5px white",
       }}
       onPress={() => {
-        push(`/categories/${category.strCategory}`);
+        // push(`/categories/${category.strCategory}`);
       }}
     >
       <Card.Body>
         <Card.Image
-          src={category.strCategoryThumb}
+          src={meal.strMealThumb}
           // height="150px"
           // objectFit="cover"
-          alt={category.strCategoryDescription}
+          alt={meal.strMeal}
           css={{ borderRadius: "14px" }}
         />{" "}
       </Card.Body>
@@ -30,12 +30,12 @@ const CategoryCard = ({ category }: { category: Category }) => {
       <Card.Footer>
         <Row justify="center" align="center">
           <Col>
-            <Text css={{ textAlign: "center" }} h3 weight={"extrabold"}>
-              {category.strCategory}
+            <Text css={{ textAlign: "center" }} h5 weight={"extrabold"}>
+              {meal.strMeal}
             </Text>
-            <Text className="overflow-text" h5 weight={"light"}>
+            {/* <Text className="overflow-text" h5 weight={"light"}>
               {category.strCategoryDescription}
-            </Text>
+            </Text> */}
           </Col>
         </Row>
       </Card.Footer>
@@ -43,4 +43,4 @@ const CategoryCard = ({ category }: { category: Category }) => {
   );
 };
 
-export default CategoryCard;
+export default MealCard;
